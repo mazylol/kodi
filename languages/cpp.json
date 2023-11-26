@@ -1,0 +1,10 @@
+{
+  "title": "C++",
+  "description": "A powerful programming language.",
+  "thumbnail": {"url": "https://example.com/cpp_thumbnail.jpg"},
+  "footer": {"text": "CppText", "icon_url": "https://example.com/cpp_icon.png"},
+  "fields": [
+    {"name": "Feature 1", "value": "Description 1"},
+    {"name": "Feature 2", "value": "Description 2"}
+  ]
+}
