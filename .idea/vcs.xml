@@ -2,9 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/cmake-build-debug-wsl/_deps/cpp_dotenv-src" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/cmake-build-debug-wsl/_deps/dpp-src" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/cmake-build-debug-wsl/_deps/dpp-src/doxygen-awesome-css" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-debug/_deps/cpp_dotenv-src" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-debug/_deps/dpp-src" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-debug/_deps/dpp-src/doxygen-awesome-css" vcs="Git" />

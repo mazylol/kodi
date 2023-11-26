@@ -25,6 +25,7 @@ FetchContent_MakeAvailable(cpp_dotenv)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
 FetchContent_MakeAvailable(json)
 
+# fmt
 FetchContent_Declare(fmt URL https://github.com/fmtlib/fmt/archive/refs/tags/10.1.1.tar.gz)
 FetchContent_MakeAvailable(fmt)
 

@@ -1,10 +1,36 @@
 {
   "title": "C++",
-  "description": "A powerful programming language.",
-  "thumbnail": {"url": "https://example.com/cpp_thumbnail.jpg"},
-  "footer": {"text": "CppText", "icon_url": "https://example.com/cpp_icon.png"},
+  "description": "The grandfather of everything else. But with extra things.",
+  "thumbnail_url": "cpp.png",
   "fields": [
-    {"name": "Feature 1", "value": "Description 1"},
-    {"name": "Feature 2", "value": "Description 2"}
-  ]
+    {
+      "name": "Overview",
+      "value": "C++ is a general-purpose programming language that is a superset of C. It is well suited for games and desktop applications. It was created in 1985 by Bjarne Stroustrup.",
+      "inline": false
+    },
+    {
+      "name": "Features",
+      "value": "- Powerful and efficient\n- Built-in functions\n- Great for system programming\n- Building block for many other languages\n- Portable\n- Middle-level language\n- Very fast\n- Very extensible\n- Memory efficient\n- Object-oriented programming",
+      "inline": false
+    },
+    {
+      "name": "Code Example",
+      "value": "```cpp\n#include <iostream>\n\nint main(void){\n std::cout << \"Hello, World!\";\n return 0;\n}\n```",
+      "inline": false
+    },
+    {
+      "name": "Learn",
+      "value": "https://www.codecademy.com/learn/learn-c-plus-plus\nhttps://www.w3schools.com/CPP/default.asp\nhttps://www.programiz.com/cpp-programming\nhttps://www.sololearn.com/learning/1051",
+      "inline": false
+    },
+    {
+      "name": "Sources",
+      "value": "https://en.wikipedia.org/wiki/C%2B%2B\nhttps://techvidvan.com/tutorials/cpp-pros-and-cons/",
+      "inline": false
+    }
+  ],
+  "footer": {
+    "text": "Discode",
+    "icon_url": "botatar.png"
+  }
 }

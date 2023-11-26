@@ -13,7 +13,8 @@ int main() {
 
     std::unordered_map<std::string, Types::Language> languages;
 
-    for (const std::string languages_path = "languages"; const auto& entry : std::filesystem::directory_iterator(languages_path)) {
+    for (const std::string languages_path = "languages"; const auto &entry: std::filesystem::directory_iterator(
+            languages_path)) {
         std::ifstream f(entry.path());
         if (!f.is_open()) {
             continue;
@@ -24,7 +25,7 @@ int main() {
         Types::Language language;
         language.deserialize(str);
 
-        const std::filesystem::path& filePath = entry.path();
+        const std::filesystem::path &filePath = entry.path();
         std::string fileName = filePath.stem().string();
         languages[fileName] = language;
     }
@@ -33,26 +34,49 @@ int main() {
 
     bot.on_log(dpp::utility::cout_logger());
 
-    bot.on_slashcommand([&bot, &languages](const dpp::slashcommand_t& event) {
+    bot.on_slashcommand([&bot, &languages](const dpp::slashcommand_t &event) {
         if (const std::string cmdName = event.command.get_command_name(); cmdName == "language") {
             const std::string option = std::get<std::string>(event.get_parameter("language"));
             auto language = languages[option];
-            event.reply(language.title);
+
+            auto embed = dpp::embed()
+                    .set_title(language.title)
+                    .set_description(language.description)
+                    .set_thumbnail(fmt::format("attachment://{}", language.thumbnail_url))
+                    .set_footer(dpp::embed_footer().set_text(language.footer.text).set_icon(
+                            fmt::format("attachment://{}", language.footer.icon_url)))
+                    .set_color(5793266)
+                    .set_timestamp(time(nullptr));
+
+            for (const auto &field: language.fields) {
+                embed.add_field(field.name, field.value, false);
+            }
+
+            auto msg = dpp::message(event.command.channel_id, embed)
+                    .add_file(
+                            language.thumbnail_url,
+                            dpp::utility::read_file(fmt::format("assets/{}", language.thumbnail_url)))
+                    .add_file(
+                            language.footer.icon_url,
+                            dpp::utility::read_file(fmt::format("assets/{}", language.footer.icon_url))
+                    );
+
+            event.reply(msg);
         } else {
             bot.log(dpp::ll_error, "No idea how but a command was called that does not exist");
         }
     });
 
-    bot.on_ready([&bot, &languages](const dpp::ready_t& /*event*/) {
+    bot.on_ready([&bot, &languages](const dpp::ready_t & /*event*/) {
         if (dpp::run_once<struct register_bot_commands>()) {
             auto language_command = dpp::slashcommand("language", "A command for programming languages", bot.me.id);
 
             auto kv = std::views::keys(languages);
-            const std::vector<std::string> keys{ kv.begin(), kv.end() };
+            const std::vector<std::string> keys{kv.begin(), kv.end()};
 
             auto language_option = dpp::command_option(dpp::co_string, "language", "the language you want", true);
 
-            for (const auto& key : keys) {
+            for (const auto &key: keys) {
                 language_option.add_choice(dpp::command_option_choice(languages[key].title, key));
             }
 
@@ -64,7 +88,7 @@ int main() {
         bot.set_presence(dpp::presence(dpp::ps_online, dpp::at_custom, "twerking and stuff"));
     });
 
-    bot.on_message_create([](const dpp::message_create_t& event) {
+    bot.on_message_create([](const dpp::message_create_t &event) {
         if (event.msg.author.is_bot())
             return;
 
