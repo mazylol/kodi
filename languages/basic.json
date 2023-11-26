@@ -1,0 +1,27 @@
+{
+  "title": "BASIC",
+  "description": "Code on easy mode.",
+  "thumbnail_url": "basic.jpg",
+  "fields": [
+    {
+      "name": "Overview",
+      "value": "BASIC is a family of general-purpose, high-level programming languages whose design goal is to create programs that are simple to understand, and to be easy to modify or extend. BASIC was originally designed as a way to teach children to program, but it has since become a popular programming language for many years. It was created by John G. Kemeny and Thomas E. Kurtz in 1964."
+    },
+    {
+      "name": "Features",
+      "value": "- Easy to learn\n- Very easy to understand\n- Size is small\n- Imperative"
+    },
+    {
+      "name": "Code Example",
+      "value": "```basic\nPRINT \"Hello, World!\"\nEND\n```"
+    },
+    {
+      "name": "Learn",
+      "value": "https://www.youtube.com/watch?v=dwVAR6HClmI"
+    },
+    {
+      "name": "Sources",
+      "value": "https://en.wikipedia.org/wiki/BASIC\nhttps://www.uopeople.edu/blog/6-reasons-why-you-should-learn-basic-programming/"
+    }
+  ]
+}

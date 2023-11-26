@@ -1,0 +1,27 @@
+{
+  "title": "Java",
+  "description": "It make block game go brrr.",
+  "thumbnail_url": "java.png",
+  "fields": [
+    {
+      "name": "Overview",
+      "value": "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is intended to allow programmers to write once and run everywhere. It was made by James Gosling in 1995."
+    },
+    {
+      "name": "Features",
+      "value": "- Object-oriented\n- Secure\n- Dynamic typing\n- Exception-handling\n- Multithreading\n- Bytecode\n- Virtual machine\n- Platform-independent"
+    },
+    {
+      "name": "Code Example",
+      "value": "```java\nclass HelloWorld{\n public static void main(String[] args){\n  System.out.println(\"Hello, World!\");\n }\n}\n```"
+    },
+    {
+      "name": "Learn",
+      "value": "https://www.codecademy.com/learn/learn-java\nhttps://www.coursera.org/specializations/core-java\nhttps://www.w3schools.com/java/default.asp\nhttps://www.programiz.com/java-programming\nhttps://www.sololearn.com/learning/1068"
+    },
+    {
+      "name": "Sources",
+      "value": "https://en.wikipedia.org/wiki/Java_(programming_language)\nhttps://www.ibm.com/docs/en/aix/7.1?topic=monitoring-advantages-java\nhttps://techvidvan.com/tutorials/pros-and-cons-of-java/"
+    }
+  ]
+}

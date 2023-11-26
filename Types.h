@@ -12,18 +12,12 @@ class Types {
         std::string value;
     };
 
-    struct Footer {
-        std::string text;
-        std::string icon_url;
-    };
-
 public:
     struct Language {
         std::string title;
         std::string description;
         std::vector<Field> fields;
         std::string thumbnail_url;
-        Footer footer;
 
         void deserialize(const std::string& input) {
             try {
@@ -32,10 +26,6 @@ public:
                 title = object.at("title").get<std::string>();
                 description = object.at("description").get<std::string>();
                 thumbnail_url = object.at("thumbnail_url").get<std::string>();
-
-                const auto&footerJson = object.at("footer");
-                footer.text = footerJson.at("text").get<std::string>();
-                footer.icon_url = footerJson.at("icon_url").get<std::string>();
 
                 const auto&fieldsJson = object.at("fields");
                 fields.clear();

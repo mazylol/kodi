@@ -1,0 +1,27 @@
+{
+  "title": "HTML",
+  "description": "What you see.",
+  "thumbnail_url": "html.png",
+  "fields": [
+    {
+      "name": "Overview",
+      "value": "HTML is the markup language for laying out the structure and content of web pages. It was created by Tim Berners-Lee in 1993."
+    },
+    {
+      "name": "Features",
+      "value": "- Very easy to understand\n- Easy to learn\n- Supported by all modern browsers\n- Lightweight\n- Easy integration with other languages\n- User-friendly"
+    },
+    {
+      "name": "Code Example",
+      "value": "```html\n<!DOCTYPE html>\n<html>\n <head>\n  <title>Hello World</title>\n </head>\n <body>\n  <h1>Hello, World</h1>\n </body>\n</html>\n```"
+    },
+    {
+      "name": "Learn",
+      "value": "https://www.codecademy.com/learn/learn-html\nhttps://www.w3schools.com/html/\nhttps://www.sololearn.com/learning/1014"
+    },
+    {
+      "name": "Sources",
+      "value": "https://en.wikipedia.org/wiki/HTML\nhttps://www.educba.com/advantages-of-html/\nhttps://www.learn-html.org/en/Hello,_World!"
+    }
+  ]
+}

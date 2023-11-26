@@ -1,0 +1,27 @@
+{
+  "title": "CSS",
+  "description": "Makes website pretty.",
+  "thumbnail_url": "css.png",
+  "fields": [
+    {
+      "name": "Overview",
+      "value": "CSS is a style sheet language that is used for styling HTML web pages. It was made by Håkon Wium Lie in 1994."
+    },
+    {
+      "name": "Features",
+      "value": "- Easy to learn\n- Easy to use\n- Lightweight\n- User-friendly"
+    },
+    {
+      "name": "Code Example",
+      "value": "```css\n<style type=\"text/css\">\nh1 {\n color: red;\n}\n</style>\n<h1>Hello, World</h1>\n```"
+    },
+    {
+      "name": "Learn",
+      "value": "https://www.w3schools.com/css/\nhttps://web.dev/learn/css/\nhttps://www.codecademy.com/learn/learn-css\nhttps://www.sololearn.com/learning/1023"
+    },
+    {
+      "name": "Sources",
+      "value": "https://en.wikipedia.org/wiki/CSS\nhttps://css3-tutorial.net/introduction/hello-css-world/\nhttps://dare2compete.com/blog/advantages-and-disadvantages-of-css"
+    }
+  ]
+}

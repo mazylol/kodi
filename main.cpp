@@ -43,8 +43,7 @@ int main() {
                     .set_title(language.title)
                     .set_description(language.description)
                     .set_thumbnail(fmt::format("attachment://{}", language.thumbnail_url))
-                    .set_footer(dpp::embed_footer().set_text(language.footer.text).set_icon(
-                            fmt::format("attachment://{}", language.footer.icon_url)))
+                    .set_footer(dpp::embed_footer().set_text("Kodi").set_icon("attachment://avatar.png"))
                     .set_color(5793266)
                     .set_timestamp(time(nullptr));
 
@@ -55,10 +54,10 @@ int main() {
             auto msg = dpp::message(event.command.channel_id, embed)
                     .add_file(
                             language.thumbnail_url,
-                            dpp::utility::read_file(fmt::format("assets/{}", language.thumbnail_url)))
+                            dpp::utility::read_file(fmt::format("assets/languages/{}", language.thumbnail_url)))
                     .add_file(
-                            language.footer.icon_url,
-                            dpp::utility::read_file(fmt::format("assets/{}", language.footer.icon_url))
+                            "avatar.png",
+                            dpp::utility::read_file("assets/avatar.png")
                     );
 
             event.reply(msg);

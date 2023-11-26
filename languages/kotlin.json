@@ -1,0 +1,27 @@
+{
+  "title": "Kotlin",
+  "description": "Java but slightly less painful.",
+  "thumbnail_url": "kotlin.png",
+  "fields": [
+    {
+      "name": "Overview",
+      "value": "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. It is designed to interoperate fully with Java. Kotlin was designed by JetBrains and first appeared on July 22, 2011."
+    },
+    {
+      "name": "Features",
+      "value": "- Allows writing less code\n- Adopting Kotlin is easy\n- Fully compatible with Java\n- No runtime overhead\n- Strong community\n- Suited for multi-platform development\n- Kotlin development offers more safety"
+    },
+    {
+      "name": "Code Example",
+      "value": "```kotlin\nfun main(args : Array<String>) {\n println(\"Hello, World!\")\n}\n```"
+    },
+    {
+      "name": "Learn",
+      "value": "https://developer.android.com/kotlin/learn\nhttps://www.programiz.com/kotlin-programming\nhttps://www.w3schools.com/kotlin/index.php\nhttps://hackr.io/tutorials/learn-kotlin"
+    },
+    {
+      "name": "Sources",
+      "value": "https://kotlinlang.org/\nhttps://en.wikipedia.org/wiki/Kotlin_(programming_language)\nhttps://www.appsbee.com/blog/kotlin-advantages-disadvantages-facts-you-should-know/\nhttps://sagaratechnology.medium.com/what-are-the-benefits-of-kotlin-d7fdcd1cfc0"
+    }
+  ]
+}

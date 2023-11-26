@@ -1,0 +1,27 @@
+{
+  "title": "Javascript",
+  "description": "Makes websites go weeeeee.",
+  "thumbnail_url": "js.png",
+  "fields": [
+    {
+      "name": "Overview",
+      "value": "Javascript is a programming language that is one of the core technologies of the web, alongside HTML and CSS. Over 97% of sites use JavaScript for web page behavior. With software such as NodeJS, it can be extended for much wider use. It was created by Brendan Eich in 1995."
+    },
+    {
+      "name": "Features",
+      "value": "- Simplicity\n- Flexibility\n- Support\n- Interoperability"
+    },
+    {
+      "name": "Code Example",
+      "value": "```js\nconsole.log(\"Hello, World!\");\n```"
+    },
+    {
+      "name": "Learn",
+      "value": "https://www.codecademy.com/learn/introduction-to-javascript\nhttps://www.w3schools.com/js/\nhttps://www.freecodecamp.org/news/learn-javascript-free-js-courses-for-beginners/\nhttps://www.sololearn.com/learning/1024"
+    },
+    {
+      "name": "Sources",
+      "value": "https://en.wikipedia.org/wiki/JavaScript\nhttps://www.javascript.com/\nhttps://www.freecodecamp.org/news/the-advantages-and-disadvantages-of-javascript/\nhttps://data-flair.training/blogs/advantages-disadvantages-javascript/"
+    }
+  ]
+}
