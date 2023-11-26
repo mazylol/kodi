@@ -31,6 +31,7 @@ FetchContent_MakeAvailable(fmt)
 
 add_executable(${PROJECT_NAME} main.cpp
         Types.h
+        Commands.h
 )
 
 add_custom_target(copy_assets
