@@ -22,6 +22,10 @@
     {
       "name": "Sources",
       "value": "https://en.wikipedia.org/wiki/C%2B%2B\nhttps://techvidvan.com/tutorials/cpp-pros-and-cons/"
+    },
+    {
+      "name": "Fun Fact",
+      "value": "This bot is actually written in C++ using the D++ library!"
     }
   ]
 }
