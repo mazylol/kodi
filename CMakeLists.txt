@@ -36,15 +36,15 @@ add_executable(${PROJECT_NAME} main.cpp
 
 add_custom_target(copy_assets
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${CMAKE_SOURCE_DIR}/assets
-            ${CMAKE_BINARY_DIR}/assets
+        ${CMAKE_SOURCE_DIR}/assets
+        ${CMAKE_BINARY_DIR}/assets
         COMMENT "Copying assets folder to build directory"
 )
 
 add_custom_target(copy_languages
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${CMAKE_SOURCE_DIR}/languages
-            ${CMAKE_BINARY_DIR}/languages
+        ${CMAKE_SOURCE_DIR}/languages
+        ${CMAKE_BINARY_DIR}/languages
         COMMENT "Copying languages folder to build directory"
 )
 
