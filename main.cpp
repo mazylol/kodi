@@ -12,7 +12,7 @@ int main() {
 
     bot.on_log(dpp::utility::cout_logger());
 
-    bot.on_slashcommand([&bot, &languages](const dpp::slashcommand_t &event) {
+    bot.on_slashcommand([&languages](const dpp::slashcommand_t &event) {
         if (const std::string cmdName = event.command.get_command_name(); cmdName == "language") {
             Commands::Language::handle_command(&event, &languages);
         }
