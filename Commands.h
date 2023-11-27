@@ -20,18 +20,20 @@ public:
             for (const std::string languages_path = "languages"; const auto &entry: std::filesystem::directory_iterator(
                     languages_path)) {
                 std::ifstream f(entry.path());
-                if (!f.is_open()) {
+
+                if (f.is_open()) {
+                    std::string str((std::istreambuf_iterator(f)), std::istreambuf_iterator<char>());
+
+                    Types::Language language;
+                    language.deserialize(str);
+
+                    const std::filesystem::path &filePath = entry.path();
+                    std::string fileName = filePath.stem().string();
+                    languages[fileName] = language;
+                } else {
+                    std::cerr << "Error opening file: " << entry.path() << std::endl;
                     continue;
                 }
-
-                std::string str((std::istreambuf_iterator(f)), std::istreambuf_iterator<char>());
-
-                Types::Language language;
-                language.deserialize(str);
-
-                const std::filesystem::path &filePath = entry.path();
-                std::string fileName = filePath.stem().string();
-                languages[fileName] = language;
             }
 
             return languages;
