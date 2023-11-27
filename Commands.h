@@ -1,6 +1,8 @@
 #ifndef KODI_COMMANDS_H
 #define KODI_COMMANDS_H
 
+#include <fmt/core.h>
+
 #include <unordered_map>
 #include <string>
 #include <fstream>
