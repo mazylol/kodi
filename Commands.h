@@ -14,31 +14,6 @@ class Commands {
 public:
     class Language {
     public:
-        static std::unordered_map<std::string, Types::Language> load_languages() {
-            std::unordered_map<std::string, Types::Language> languages;
-
-            for (const std::string languages_path = "languages"; const auto &entry: std::filesystem::directory_iterator(
-                    languages_path)) {
-                std::ifstream f(entry.path());
-
-                if (f.is_open()) {
-                    std::string str((std::istreambuf_iterator(f)), std::istreambuf_iterator<char>());
-
-                    Types::Language language;
-                    language.deserialize(str);
-
-                    const std::filesystem::path &filePath = entry.path();
-                    std::string fileName = filePath.stem().string();
-                    languages[fileName] = language;
-                } else {
-                    std::cerr << "Error opening file: " << entry.path() << std::endl;
-                    continue;
-                }
-            }
-
-            return languages;
-        }
-
         static void
         register_command(dpp::cluster *bot, const std::unordered_map<std::string, Types::Language> *languages) {
             auto language_command = dpp::slashcommand("language", "A command for programming languages", bot->me.id);

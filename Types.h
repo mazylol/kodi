@@ -42,6 +42,33 @@ public:
             }
         }
     };
+
+public:
+    template<typename T>
+    static std::unordered_map<std::string, T> load(const std::string &path) {
+        std::unordered_map<std::string, T> items_map;
+
+        for (const auto &entry: std::filesystem::directory_iterator(
+                path)) {
+            std::ifstream f(entry.path());
+
+            if (f.is_open()) {
+                std::string str((std::istreambuf_iterator(f)), std::istreambuf_iterator<char>());
+
+                T type;
+                type.deserialize(str);
+
+                const std::filesystem::path &filePath = entry.path();
+                std::string fileName = filePath.stem().string();
+                items_map[fileName] = type;
+            } else {
+                std::cerr << "Error opening file: " << entry.path() << std::endl;
+                continue;
+            }
+        }
+
+        return items_map;
+    }
 };
 
 #endif //TYPES_H

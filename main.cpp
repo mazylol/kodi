@@ -2,11 +2,12 @@
 #include <dpp/dpp.h>
 
 #include "Commands.h"
+#include "Types.h"
 
 int main() {
     dotenv::env.load_dotenv();
 
-    auto languages = Commands::Language::load_languages();
+    auto languages = Types::load<Types::Language>("languages");
 
     dpp::cluster bot(dotenv::env["BOT_TOKEN"]);
 
