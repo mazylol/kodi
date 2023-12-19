@@ -1,6 +1,6 @@
 {
   "title": "C++",
-  "description": "The grandfather of everything else. But with extra things.",
+  "description": "Foot Nuke 9000",
   "thumbnail_url": "cpp.png",
   "fields": [
     {
@@ -9,11 +9,11 @@
     },
     {
       "name": "Features",
-      "value": "- Powerful and efficient\n- Built-in functions\n- Great for system programming\n- Building block for many other languages\n- Portable\n- Middle-level language\n- Very fast\n- Very extensible\n- Memory efficient\n- Object-oriented programming"
+      "value": "- Powerful and efficient\n- Built-in functions\n- Great for system programming\n- Building block for many other languages\n- Portable\n- Middle-level language\n- Very fast\n- Very extensible\n- Memory efficient\n- Object-oriented programming\n- Based"
     },
     {
       "name": "Code Example",
-      "value": "```cpp\n#include <iostream>\n\nint main(void){\n std::cout << \"Hello, World!\";\n return 0;\n}\n```"
+      "value": "```cpp\n#include <iostream>\n\nint main() {\n std::cout << \"Hello, World!\\n\";\n return 0;\n}\n```"
     },
     {
       "name": "Learn",
