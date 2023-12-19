@@ -48,7 +48,14 @@ add_custom_target(copy_languages
         COMMENT "Copying languages folder to build directory"
 )
 
-add_dependencies(${PROJECT_NAME} copy_assets copy_languages)
+add_custom_target(copy_people
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/people
+        ${CMAKE_BINARY_DIR}/people
+        COMMENT "Copying languages folder to build directory"
+)
+
+add_dependencies(${PROJECT_NAME} copy_assets copy_languages copy_people)
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 

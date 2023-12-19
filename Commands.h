@@ -44,10 +44,45 @@ public:
         }
     };
 
+    class Person {
+    public:
+        static void
+        handle_command(const dpp::slashcommand_t *event, std::unordered_map<std::string, Types::Person> *people) {
+            const std::string option = std::get<std::string>(event->get_parameter("person"));
+            auto person = (*people)[option];
+
+            auto embed = dpp::embed()
+                    .set_title(person.title)
+                    .set_description(person.description)
+                    .set_thumbnail(fmt::format("attachment://{}", person.thumbnail_url))
+                    .set_footer(dpp::embed_footer().set_text("Kodi").set_icon("attachment://avatar.png"))
+                    .set_color(5793266)
+                    .set_timestamp(time(nullptr));
+
+            for (const auto &field: person.fields) {
+                embed.add_field(field.name, field.value, false);
+            }
+
+            auto msg = dpp::message(event->command.channel_id, embed)
+                    .add_file(
+                            person.thumbnail_url,
+                            dpp::utility::read_file(fmt::format("assets/people/{}", person.thumbnail_url))
+                    )
+                    .add_file(
+                            "avatar.png",
+                            dpp::utility::read_file("assets/avatar.png")
+                    );
+
+            event->reply(msg);
+        }
+    };
+
 public:
-    template <typename T>
+    template<typename T>
     static void
-    register_command(dpp::cluster *bot, const std::unordered_map<std::string, T> *options, const std::string &name, const std::string &description, const std::string &option_name, const  std::string &option_description) {
+    register_command(dpp::cluster *bot, const std::unordered_map<std::string, T> *options, const std::string &name,
+                     const std::string &description, const std::string &option_name,
+                     const std::string &option_description) {
         auto command = dpp::slashcommand(name, description, bot->me.id);
 
         auto kv = std::views::keys(*options);
