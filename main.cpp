@@ -21,7 +21,7 @@ int main() {
 
     bot.on_ready([&bot, &languages](const dpp::ready_t & /*event*/) {
         if (dpp::run_once<struct register_bot_commands>()) {
-            Commands::Language::register_command(&bot, &languages);
+            Commands::register_command(&bot, &languages, "language", "A command for programming languages", "language", "the language you want");
         }
 
         bot.set_presence(dpp::presence(dpp::ps_online, dpp::at_custom, "watching you steal from stackoverflow"));

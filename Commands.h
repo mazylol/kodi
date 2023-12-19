@@ -15,24 +15,6 @@ public:
     class Language {
     public:
         static void
-        register_command(dpp::cluster *bot, const std::unordered_map<std::string, Types::Language> *languages) {
-            auto language_command = dpp::slashcommand("language", "A command for programming languages", bot->me.id);
-
-            auto kv = std::views::keys(*languages);
-            const std::vector<std::string> keys{kv.begin(), kv.end()};
-
-            auto language_option = dpp::command_option(dpp::co_string, "language", "the language you want", true);
-
-            for (const auto &key: keys) {
-                language_option.add_choice(dpp::command_option_choice((*languages).at(key).title, key));
-            }
-
-            language_command.add_option(language_option);
-
-            bot->guild_command_create(language_command, dpp::snowflake(dotenv::env["GUILD_ID"]));
-        }
-
-        static void
         handle_command(const dpp::slashcommand_t *event, std::unordered_map<std::string, Types::Language> *languages) {
             const std::string option = std::get<std::string>(event->get_parameter("language"));
             auto language = (*languages)[option];
@@ -61,6 +43,26 @@ public:
             event->reply(msg);
         }
     };
+
+public:
+    template <typename T>
+    static void
+    register_command(dpp::cluster *bot, const std::unordered_map<std::string, T> *options, const std::string &name, const std::string &description, const std::string &option_name, const  std::string &option_description) {
+        auto command = dpp::slashcommand(name, description, bot->me.id);
+
+        auto kv = std::views::keys(*options);
+        const std::vector<std::string> keys{kv.begin(), kv.end()};
+
+        auto option = dpp::command_option(dpp::co_string, option_name, option_description, true);
+
+        for (const auto &key: keys) {
+            option.add_choice(dpp::command_option_choice((*options).at(key).title, key));
+        }
+
+        command.add_option(option);
+
+        bot->guild_command_create(command, dpp::snowflake(dotenv::env["GUILD_ID"]));
+    }
 };
 
 
