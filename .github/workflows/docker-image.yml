@@ -17,4 +17,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag kodi:$(date +%m/%d)
     - name: Run the Docker image
-      run: docker run kodi
+      run: touch .env && docker run kodi
