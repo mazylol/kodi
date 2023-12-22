@@ -1,0 +1,19 @@
+{
+  "title": "Ada Lovelace",
+  "description": "She was basically the first programmer",
+  "thumbnail_url": "adalovelace.jpg",
+  "fields": [
+    {
+      "name": "Overview",
+      "value": "Ada lovelace was born in 1815. As an adult she worked under Charles Babbage. She worked on his Analytical Machine. The machine was kind of like the world's first computer. She figured out how to execute things on it. These basics became the base of how all languages work at their very core."
+    },
+    {
+      "name": "Life and Death",
+      "value": "Born: December 10, 1815\nDied: November 27, 1852"
+    },
+    {
+      "name": "Sources",
+      "value": "https://en.wikipedia.org/wiki/Ada_Lovelace\nhttps://www.sdsc.edu/ScienceWomen/lovelace.html"
+    }
+  ]
+}

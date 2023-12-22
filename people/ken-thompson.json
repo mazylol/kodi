@@ -1,0 +1,19 @@
+{
+  "title": "Ken Thompson",
+  "description": "B, Unix, and Go God",
+  "thumbnail_url": "kenthompson.png",
+  "fields": [
+    {
+      "name": "Overview",
+      "value": "Kenneth Lane Thompson is an American computer scientist. He designed and implemented the original Unix operating system. He also create the B language which was the predecessor to C. Since 2006 he has worked at Google where he has co-developed the Go programming language."
+    },
+    {
+      "name": "Life and Death",
+      "value": "Born: February 4, 1943\nDied: -"
+    },
+    {
+      "name": "Sources",
+      "value": "https://en.wikipedia.org/wiki/Ken_Thompson"
+    }
+  ]
+}
