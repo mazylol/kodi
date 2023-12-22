@@ -9,7 +9,7 @@ COPY . .
 RUN mkdir build
 WORKDIR /usr/src/app/build
 
-RUN cmake -DCMAKE_GENERATOR=Ninja ..
+RUN cmake -DCMAKE_GENERATOR=Ninja -DCMAKE_BUILD_TYPE=Release ..
 RUN ninja
 
 CMD ["./kodi"]
