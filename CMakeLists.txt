@@ -38,6 +38,7 @@ FetchContent_MakeAvailable(fmt)
 add_executable(${PROJECT_NAME}
         main.cpp
         Commands.cpp
+        Types.cpp
         Types.h
         Commands.h
 )

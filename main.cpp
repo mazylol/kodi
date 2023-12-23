@@ -35,8 +35,7 @@ int main() {
 
             if (dotenv::env["PROD"].empty()) {
                 bot.guild_command_create(
-                        dpp::slashcommand("shutdown", "Turn off the bot", bot.me.id).set_default_permissions(
-                                dpp::permissions::p_administrator), guildId);
+                    dpp::slashcommand("shutdown", "Turn off the bot", bot.me.id).set_default_permissions(dpp::permissions::p_administrator), guildId);
             }
         }
 
