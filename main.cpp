@@ -16,9 +16,9 @@ int main() {
 
     bot.on_slashcommand([&bot, &languages, &people](const dpp::slashcommand_t &event) {
         if (const std::string cmdName = event.command.get_command_name(); cmdName == "language") {
-            Commands::Language::handle_command(&event, &languages);
+            Commands::handle_language_command(&event, &languages);
         } else if (cmdName == "person") {
-            Commands::Person::handle_command(&event, &people);
+            Commands::handle_person_command(&event, &people);
         } else if (cmdName == "shutdown" && dotenv::env["PROD"].empty()) {
             bot.shutdown();
         }
