@@ -3,4 +3,5 @@ IndentWidth: 4
 AllowShortIfStatementsOnASingleLine: false
 IndentCaseLabels: false
 NamespaceIndentation: All
+FixNamespaceComments: false
 ColumnLimit: 0
