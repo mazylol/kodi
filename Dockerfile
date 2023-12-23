@@ -12,4 +12,6 @@ WORKDIR /usr/src/app/build
 RUN cmake -DCMAKE_GENERATOR=Ninja -DCMAKE_BUILD_TYPE=Release ..
 RUN ninja
 
+ENV PROD=1
+
 CMD ["./kodi"]
