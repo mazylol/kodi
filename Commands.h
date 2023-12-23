@@ -1,9 +1,7 @@
-#ifndef KODI_CMDS_H
-#define KODI_CMDS_H
+#ifndef KODI_COMMANDS_H
+#define KODI_COMMANDS_H
 
 #include <dpp/dpp.h>
-
-#include <dotenv.h>
 
 #include <unordered_map>
 
@@ -14,7 +12,7 @@ namespace Commands {
     void handle_person_command(const dpp::slashcommand_t *event, std::unordered_map<std::string, Types::Person> *people);
 
     template <typename T>
-    void register_command(dpp::cluster *bot, const std::unordered_map<std::string, T> *options, const std::string &name,
+    void register_command(dpp::cluster *bot, std::string *guildId, const std::unordered_map<std::string, T> *options, const std::string &name,
                           const std::string &description, const std::string &option_name,
                           const std::string &option_description) {
         auto command = dpp::slashcommand(name, description, bot->me.id);
@@ -30,8 +28,8 @@ namespace Commands {
 
         command.add_option(option);
 
-        bot->guild_command_create(command, dpp::snowflake(dotenv::env["GUILD_ID"]));
+        bot->guild_command_create(command, dpp::snowflake((*guildId)));
     }
-}
+} // namespace Commands
 
 #endif

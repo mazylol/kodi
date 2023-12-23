@@ -7,6 +7,8 @@
 int main() {
     dotenv::env.load_dotenv();
 
+    std::string guildId = dotenv::env["GUILD_ID"];
+
     auto languages = Types::load<Types::Language>("languages");
     auto people = Types::load<Types::Person>("people");
 
@@ -24,17 +26,17 @@ int main() {
         }
     });
 
-    bot.on_ready([&bot, &languages, &people](const dpp::ready_t & /*event*/) {
+    bot.on_ready([&bot, &guildId, &languages, &people](const dpp::ready_t & /*event*/) {
         if (dpp::run_once<struct register_bot_commands>()) {
-            Commands::register_command(&bot, &languages, "language", "A command for programming languages", "language",
+            Commands::register_command(&bot, &guildId, &languages, "language", "A command for programming languages", "language",
                                        "the language you want");
-            Commands::register_command(&bot, &people, "person", "A command for influential programming figures",
+            Commands::register_command(&bot, &guildId, &people, "person", "A command for influential programming figures",
                                        "person", "the person you want");
 
             if (dotenv::env["PROD"].empty()) {
                 bot.guild_command_create(
                         dpp::slashcommand("shutdown", "Turn off the bot", bot.me.id).set_default_permissions(
-                                dpp::permissions::p_administrator), dotenv::env["GUILD_ID"]);
+                                dpp::permissions::p_administrator), guildId);
             }
         }
 

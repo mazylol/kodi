@@ -1,6 +1,6 @@
 #include "Commands.h"
+
 #include <fmt/format.h>
-#include <dotenv.h>
 
 namespace Commands {
     void handle_language_command(const dpp::slashcommand_t *event, std::unordered_map<std::string, Types::Language> *languages) {
