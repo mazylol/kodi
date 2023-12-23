@@ -57,7 +57,7 @@ void Commands::handle_person_command(const dpp::slashcommand_t *event, std::unor
 }
 
 template <typename T>
-void Commands::register_command(dpp::cluster *bot, std::string *guildId, const std::unordered_map<std::string, T> *options, const std::string &name,
+void Commands::register_command(dpp::cluster *bot, std::string *guildId, bool prod, const std::unordered_map<std::string, T> *options, const std::string &name,
                                 const std::string &description, const std::string &option_name,
                                 const std::string &option_description) {
     auto command = dpp::slashcommand(name, description, bot->me.id);
@@ -73,12 +73,16 @@ void Commands::register_command(dpp::cluster *bot, std::string *guildId, const s
 
     command.add_option(option);
 
-    bot->guild_command_create(command, dpp::snowflake((*guildId)));
+    if (prod) {
+        bot->global_command_create(command);
+    } else {
+        bot->guild_command_create(command, dpp::snowflake((*guildId)));
+    }
 }
 
-template void Commands::register_command(dpp::cluster *bot, std::string *guildId, const std::unordered_map<std::string, Types::Language> *options, const std::string &name,
+template void Commands::register_command(dpp::cluster *bot, std::string *guildId, bool prod, const std::unordered_map<std::string, Types::Language> *options, const std::string &name,
                                          const std::string &description, const std::string &option_name,
                                          const std::string &option_description);
-template void Commands::register_command(dpp::cluster *bot, std::string *guildId, const std::unordered_map<std::string, Types::Person> *options, const std::string &name,
+template void Commands::register_command(dpp::cluster *bot, std::string *guildId, bool prod, const std::unordered_map<std::string, Types::Person> *options, const std::string &name,
                                          const std::string &description, const std::string &option_name,
                                          const std::string &option_description);
