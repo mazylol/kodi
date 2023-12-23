@@ -14,22 +14,7 @@ namespace Commands {
     template <typename T>
     void register_command(dpp::cluster *bot, std::string *guildId, const std::unordered_map<std::string, T> *options, const std::string &name,
                           const std::string &description, const std::string &option_name,
-                          const std::string &option_description) {
-        auto command = dpp::slashcommand(name, description, bot->me.id);
-
-        auto kv = std::views::keys(*options);
-        const std::vector<std::string> keys{kv.begin(), kv.end()};
-
-        auto option = dpp::command_option(dpp::co_string, option_name, option_description, true);
-
-        for (const auto &key : keys) {
-            option.add_choice(dpp::command_option_choice((*options).at(key).title, key));
-        }
-
-        command.add_option(option);
-
-        bot->guild_command_create(command, dpp::snowflake((*guildId)));
-    }
-} // namespace Commands
+                          const std::string &option_description);
+}
 
 #endif
