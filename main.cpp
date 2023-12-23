@@ -1,5 +1,6 @@
 #include <dotenv.h>
 #include <dpp/dpp.h>
+#include <fmt/format.h>
 
 #include "Commands.h"
 #include "Types.h"
@@ -7,7 +8,7 @@
 int main() {
     dotenv::env.load_dotenv();
 
-    std::string guildId = dotenv::env["GUILD_ID"];
+    std::string guildId(dotenv::env["GUILD_ID"]);
 
     auto languages = Types::load<Types::Language>("languages");
     auto people = Types::load<Types::Person>("people");
@@ -27,6 +28,8 @@ int main() {
     });
 
     bot.on_ready([&bot, &guildId, &languages, &people](const dpp::ready_t & /*event*/) {
+        bot.log(dpp::ll_info, fmt::format("Logged in as {}#{}", bot.me.username, bot.me.discriminator));
+
         if (dpp::run_once<struct register_bot_commands>()) {
             Commands::register_command(&bot, &guildId, &languages, "language", "A command for programming languages", "language",
                                        "the language you want");
