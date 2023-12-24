@@ -29,7 +29,7 @@ namespace Types {
         void deserialize(const std::string &input);
     };
 
-    template <typename T>
+    template<typename T>
     std::unordered_map<std::string, T> load(const std::string &path);
 };
 

@@ -44,14 +44,17 @@ int main() {
         bot.log(dpp::ll_info, fmt::format("Running in {} mode", prod ? "production" : "development"));
 
         if (dpp::run_once<struct register_bot_commands>()) {
-            Commands::register_command(&bot, &guildId, prod, &languages, "language", "A command for programming languages", "language",
+            Commands::register_command(&bot, &guildId, prod, &languages, "language",
+                                       "A command for programming languages", "language",
                                        "the language you want");
-            Commands::register_command(&bot, &guildId, prod, &people, "person", "A command for influential programming figures",
+            Commands::register_command(&bot, &guildId, prod, &people, "person",
+                                       "A command for influential programming figures",
                                        "person", "the person you want");
 
             if (!prod) {
                 bot.guild_command_create(
-                    dpp::slashcommand("shutdown", "Turn off the bot", bot.me.id).set_default_permissions(dpp::permissions::p_administrator), guildId);
+                        dpp::slashcommand("shutdown", "Turn off the bot", bot.me.id).set_default_permissions(
+                                dpp::permissions::p_administrator), guildId);
             }
         }
 

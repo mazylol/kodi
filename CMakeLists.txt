@@ -3,9 +3,9 @@ project(kodi)
 
 # enable ccache
 find_program(CCACHE_PROGRAM ccache)
-if(CCACHE_PROGRAM)
+if (CCACHE_PROGRAM)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
-endif()
+endif ()
 
 set(ENV_FILE_SOURCE ${CMAKE_SOURCE_DIR}/.env)
 set(ENV_FILE_DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/.env)
