@@ -1,25 +1,26 @@
-#include <dotenv.h>
 #include <dpp/dpp.h>
 #include <fmt/format.h>
 #include <string>
+
+#include "dotenvloader.hpp"
 
 #include "Commands.h"
 #include "Types.h"
 
 int main() {
-    dotenv::env.load_dotenv();
+    dotenvloader::load();
 
     auto languages = Types::load<Types::Language>("languages");
     auto people = Types::load<Types::Person>("people");
 
-    bool prod = !dotenv::env["PROD"].empty();
+    bool prod = std::getenv("PROD");
 
     std::string token;
 
     if (prod) {
-        token = dotenv::env["PROD_BOT_TOKEN"];
+        token = std::getenv("PROD_BOT_TOKEN");
     } else {
-        token = dotenv::env["DEV_BOT_TOKEN"];
+        token = std::getenv("DEV_BOT_TOKEN");
     }
 
     dpp::cluster bot(token);
@@ -39,7 +40,7 @@ int main() {
     bot.on_ready([&bot, &prod, &languages, &people](const dpp::ready_t & /*event*/) {
         bot.log(dpp::ll_info, fmt::format("Logged in as {}#{}", bot.me.username, bot.me.discriminator));
 
-        std::string guildId(dotenv::env["DEV_GUILD_ID"]);
+        std::string guildId(std::getenv("DEV_GUILD_ID"));
 
         bot.log(dpp::ll_info, fmt::format("Running in {} mode", prod ? "production" : "development"));
 

@@ -20,12 +20,12 @@ FetchContent_Declare(dpp
 )
 FetchContent_MakeAvailable(dpp)
 
-# cpp-dotenv
-FetchContent_Declare(cpp_dotenv
-        GIT_REPOSITORY https://github.com/adeharo9/cpp-dotenv
-        GIT_TAG v1.0.0-alpha
+# dotenvloader
+FetchContent_Declare(dotenvloader
+        GIT_REPOSITORY https://github.com/mazylol/dotenvloader
+        GIT_TAG v1.0.1
 )
-FetchContent_MakeAvailable(cpp_dotenv)
+FetchContent_MakeAvailable(dotenvloader)
 
 # nlohmann_json::nlohmann_json
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
@@ -70,7 +70,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 
 target_link_libraries(${PROJECT_NAME}
         dpp
-        cpp_dotenv
+        dotenvloader
         fmt::fmt
         nlohmann_json::nlohmann_json
 )
